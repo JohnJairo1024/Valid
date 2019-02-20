@@ -1,4 +1,4 @@
-package com.grokonez.uploadmultifiles.config;
+package com.valid.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;

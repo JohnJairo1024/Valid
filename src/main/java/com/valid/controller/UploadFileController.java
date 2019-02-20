@@ -1,4 +1,4 @@
-package com.grokonez.uploadmultifiles.controller;
+package com.valid.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.grokonez.uploadmultifiles.model.FileModel;
-import com.grokonez.uploadmultifiles.repository.FileRepository;
+import com.valid.model.FileModel;
+import com.valid.repository.FileRepository;
 
 @Controller
 public class UploadFileController {

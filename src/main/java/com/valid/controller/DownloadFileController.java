@@ -1,8 +1,10 @@
-package com.grokonez.uploadmultifiles.controller;
+package com.valid.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.valid.model.FileInfo;
+import com.valid.repository.FileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -12,15 +14,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
-import com.grokonez.uploadmultifiles.model.FileInfo;
-import com.grokonez.uploadmultifiles.model.FileModel;
-import com.grokonez.uploadmultifiles.repository.FileRepository;
+import com.valid.model.FileModel;
 
 @Controller
 public class DownloadFileController {
 
 	@Autowired
-	FileRepository fileRepository;
+    FileRepository fileRepository;
 	
 	/*
 	 * Retrieve Files' Information

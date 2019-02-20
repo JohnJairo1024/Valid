@@ -1,4 +1,4 @@
-package com.grokonez.uploadmultifiles.model.audit;
+package com.valid.model.audit;
 
 import java.time.Instant;
 

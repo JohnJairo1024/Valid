@@ -1,4 +1,4 @@
-package com.grokonez.uploadmultifiles;
+package com.valid;
 
 import java.util.TimeZone;
 
@@ -12,11 +12,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EntityScan(basePackageClasses = { 
-		SpringBootUploadMultiFileToMySqlApplication.class,
+		App.class,
 		Jsr310JpaConverters.class 
 })
 @EnableTransactionManagement
-public class SpringBootUploadMultiFileToMySqlApplication {
+public class App {
 
 	@PostConstruct
 	void init() {
@@ -25,6 +25,6 @@ public class SpringBootUploadMultiFileToMySqlApplication {
 
 	
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootUploadMultiFileToMySqlApplication.class, args);
+		SpringApplication.run(App.class, args);
 	}
 }

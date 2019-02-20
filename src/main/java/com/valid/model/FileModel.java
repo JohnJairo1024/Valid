@@ -1,4 +1,4 @@
-package com.grokonez.uploadmultifiles.model;
+package com.valid.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-import com.grokonez.uploadmultifiles.model.audit.DateAudit;
- 
+import com.valid.model.audit.DateAudit;
+
 @Entity
 @Table(name="file_model")
 public class FileModel  extends DateAudit {

@@ -1,4 +1,4 @@
-package com.grokonez.uploadmultifiles.model;
+package com.valid.model;
 
 public class FileInfo {
 	private String filename;
