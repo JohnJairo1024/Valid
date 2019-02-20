@@ -1,4 +1,4 @@
-package com.valid.model.audit;
+package com.valid.model.fecha;
 
 import java.time.Instant;
 
@@ -15,32 +15,32 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(
-        value = {"createdAt", "updatedAt"},
+        value = {"fechaCreacion", "fechaActualizacion"},
         allowGetters = true
 )
-public abstract class DateAudit {
+public abstract class Fecha {
  
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    private Instant createdAt;
+    private Instant fechaCreacion;
  
     @LastModifiedDate
     @Column(nullable = false)
-    private Instant updatedAt;
- 
-    public Instant getCreatedAt() {
-        return createdAt;
+    private Instant fechaActualizacion;
+
+    public Instant getFechaCreacion() {
+        return fechaCreacion;
     }
- 
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
+
+    public void setFechaCreacion(Instant fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
- 
-    public Instant getUpdatedAt() {
-        return updatedAt;
+
+    public Instant getFechaActualizacion() {
+        return fechaActualizacion;
     }
- 
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
+
+    public void setFechaActualizacion(Instant fechaActualizacion) {
+        this.fechaActualizacion = fechaActualizacion;
     }
 }

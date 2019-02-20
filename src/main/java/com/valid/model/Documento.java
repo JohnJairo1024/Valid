@@ -7,11 +7,11 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-import com.valid.model.audit.DateAudit;
+import com.valid.model.fecha.Fecha;
 
 @Entity
-@Table(name="file_model")
-public class Documento extends DateAudit {
+@Table(name="documento")
+public class Documento extends Fecha {
 	@Id
 	@GeneratedValue
     @Column(name = "id")
@@ -24,15 +24,15 @@ public class Documento extends DateAudit {
 	private String mimetype;
 	
 	@Lob
-    @Column(name="pic")
-    private byte[] pic;
+    @Column(name="data")
+    private byte[] data;
 	
 	public Documento(){}
 	
-	public Documento(String nombre, String mimetype, byte[] pic){
+	public Documento(String nombre, String mimetype, byte[] data){
 		this.nombre = nombre;
 		this.mimetype = mimetype;
-		this.pic = pic;
+		this.data = data;
 	}
 	
 	public Long getId(){
@@ -59,11 +59,11 @@ public class Documento extends DateAudit {
 		this.mimetype = mimetype;
 	}
 	
-	public byte[] getPic(){
-		return this.pic;
+	public byte[] getData(){
+		return this.data;
 	}
 	
-	public void setPic(byte[] pic){
-		this.pic = pic;
+	public void setData(byte[] data){
+		this.data = data;
 	}
 }

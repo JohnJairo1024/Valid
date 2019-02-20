@@ -36,7 +36,7 @@ public class UploadFileController {
 				Documento documento = fileRepository.findByNombre(file.getOriginalFilename());
 				if(documento != null) {
 					// update new contents
-					documento.setPic(file.getBytes());
+					documento.setData(file.getBytes());
 				}else {
 					documento = new Documento(file.getOriginalFilename(), file.getContentType(), file.getBytes());
 				}
