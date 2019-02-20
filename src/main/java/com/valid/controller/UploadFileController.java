@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.valid.model.FileModel;
+import com.valid.model.Documento;
 import com.valid.repository.FileRepository;
 
 @Controller
@@ -30,19 +30,19 @@ public class UploadFileController {
     	List<String> fileNames = new ArrayList<String>();
     	
 		try {
-			List<FileModel> storedFile = new ArrayList<FileModel>();
+			List<Documento> storedFile = new ArrayList<Documento>();
 			
 			for(MultipartFile file: files) {
-				FileModel fileModel = fileRepository.findByName(file.getOriginalFilename());
-				if(fileModel != null) {
+				Documento documento = fileRepository.findByNombre(file.getOriginalFilename());
+				if(documento != null) {
 					// update new contents
-					fileModel.setPic(file.getBytes());
+					documento.setPic(file.getBytes());
 				}else {
-					fileModel = new FileModel(file.getOriginalFilename(), file.getContentType(), file.getBytes());
+					documento = new Documento(file.getOriginalFilename(), file.getContentType(), file.getBytes());
 				}
 				
 				fileNames.add(file.getOriginalFilename());				
-				storedFile.add(fileModel);
+				storedFile.add(documento);
 			}
 			
 			// Save all Files to database

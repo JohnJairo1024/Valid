@@ -11,14 +11,14 @@ import com.valid.model.audit.DateAudit;
 
 @Entity
 @Table(name="file_model")
-public class FileModel  extends DateAudit {
+public class Documento extends DateAudit {
 	@Id
 	@GeneratedValue
     @Column(name = "id")
     private Long id;
 	
-    @Column(name = "name")
-	private String name;
+    @Column(name = "nombre")
+	private String nombre;
     
     @Column(name = "mimetype")
 	private String mimetype;
@@ -27,10 +27,10 @@ public class FileModel  extends DateAudit {
     @Column(name="pic")
     private byte[] pic;
 	
-	public FileModel(){}
+	public Documento(){}
 	
-	public FileModel(String name, String mimetype, byte[] pic){
-		this.name = name;
+	public Documento(String nombre, String mimetype, byte[] pic){
+		this.nombre = nombre;
 		this.mimetype = mimetype;
 		this.pic = pic;
 	}
@@ -43,12 +43,12 @@ public class FileModel  extends DateAudit {
 		this.id = id;
 	}
 	
-	public String getName(){
-		return this.name;
+	public String getNombre(){
+		return this.nombre;
 	}
 	
-	public void setName(String name){
-		this.name = name;
+	public void setNombre(String nombre){
+		this.nombre = nombre;
 	}
 	
 	public String getMimetype(){
