@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.valid.model.Documento;
-import com.valid.repository.FileRepository;
+import com.valid.repository.DocumentoRepository;
 
 @Controller
 public class UploadFileController {
 
     @Autowired
-    FileRepository fileRepository;
+    DocumentoRepository documentoRepository;
 
     @GetMapping("/")
     public String index() {
-        return "uploadform";
+        return "formulariodecarga";
     }
 
     @PostMapping("/")
@@ -33,7 +33,7 @@ public class UploadFileController {
             List<Documento> archivoAlmacenado = new ArrayList<>();
 
             for (MultipartFile file : files) {
-                Documento documento = fileRepository.findByNombre(file.getOriginalFilename());
+                Documento documento = documentoRepository.findByNombre(file.getOriginalFilename());
                 if (documento != null) {
                     documento.setData(file.getBytes());
                 } else {
@@ -45,7 +45,7 @@ public class UploadFileController {
             }
 
             // Guarda la data
-            fileRepository.saveAll(archivoAlmacenado);
+            documentoRepository.saveAll(archivoAlmacenado);
 
             model.addAttribute("message", "Archivos subidos exitosamente!");
             model.addAttribute("files", archivoNombre);
@@ -54,6 +54,6 @@ public class UploadFileController {
             model.addAttribute("files", archivoNombre);
         }
 
-        return "uploadform";
+        return "formulariodecarga";
     }
 }

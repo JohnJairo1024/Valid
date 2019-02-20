@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.valid.model.DocumentoInfo;
-import com.valid.repository.FileRepository;
+import com.valid.repository.DocumentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -20,14 +20,14 @@ import com.valid.model.Documento;
 public class DownloadFileController {
 
 	@Autowired
-    FileRepository fileRepository;
+    DocumentoRepository documentoRepository;
 	
 	/*
 	 * Retrieve Files' Information
 	 */
 	@GetMapping("/files")
 	public String getListFiles(Model model) {
-		List<DocumentoInfo> documentoInfos = fileRepository.findAll().stream().map(
+		List<DocumentoInfo> documentoInfos = documentoRepository.findAll().stream().map(
 				documento ->	{
 					String nombrearchivo = documento.getNombre();
 					String url = MvcUriComponentsBuilder.fromMethodName(DownloadFileController.class,
@@ -38,7 +38,7 @@ public class DownloadFileController {
 			.collect(Collectors.toList());
 	
 		model.addAttribute("files", documentoInfos);
-		return "listfiles";
+		return "listararchivos";
 	}
  
     /*
@@ -46,7 +46,7 @@ public class DownloadFileController {
      */
 	@GetMapping("/files/{nombrearchivo}")
 	public ResponseEntity<byte[]> downloadFile(@PathVariable String nombrearchivo) {
-		Documento file = fileRepository.findByNombre(nombrearchivo);
+		Documento file = documentoRepository.findByNombre(nombrearchivo);
 		return ResponseEntity.ok()
 					.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; nombrearchivo=\"" + file.getNombre() + "\"")
 					.body(file.getData());

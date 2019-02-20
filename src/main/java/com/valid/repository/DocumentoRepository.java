@@ -6,6 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.valid.model.Documento;
 
 @Transactional
-public interface FileRepository extends JpaRepository<Documento, Long>{
+public interface DocumentoRepository extends JpaRepository<Documento, Long>{
 	public Documento findByNombre(String nombre);
 }
